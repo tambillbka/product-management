@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,25 +22,37 @@ public class ProductRestController {
     ProductService productService;
 
     /// API
+
+    // Find and search
     @GetMapping("/products")
-    public ResponseEntity<?> getProduct() {
+    public ResponseEntity<?> getProducts() {
         return null;
     }
 
+    // Create new product
     @PostMapping("/products")
     public ResponseEntity<Product> postProduct(@RequestBody CreateProductReq req) {
         Product product = productService.createProduct(req);
         return ResponseEntity.ok(product);
     }
 
+    // Get detail product information by Id
+    @GetMapping("/products/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable Integer id) {
+        Product product = productService.getById(id);
+        return ResponseEntity.ok(product);
+    }
+
+    // Update Product Information
     @PutMapping("/products")
     public ResponseEntity<?> putProduct() {
         return null;
     }
 
-    @DeleteMapping("/products")
-    public ResponseEntity<?> deleteProduct() {
-        return null;
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
+        productService.deleteProduct(id);
+        return ResponseEntity.ok(null);
     }
 
     @PostMapping("/products/csv")
