@@ -1,0 +1,17 @@
+.w-200px {
+    width: 250px;
+}
+
+.btn-search {
+    max-height: 50px;
+    width: 140px;
+    margin-left: 1rem;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-red {
+    color: #EC2626FF;
+}
