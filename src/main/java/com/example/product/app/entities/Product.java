@@ -1,6 +1,6 @@
 package com.example.product.app.entities;
 
-import com.example.product.app.payloads.requests.CreateProductReq;
+import com.example.product.app.payloads.requests.ProductRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -59,11 +59,19 @@ public class Product {
     private Date updatedDate;
 
     // Constructor create product from product request (Request from Client)
-    public Product(CreateProductReq req) {
-        this.name = req.getProductName();
-        this.description = req.getProductDescription();
+    public Product(ProductRequest req) {
+        this.name = req.getProductName().trim();
+        this.description = req.getProductDescription().trim();
         this.cost = req.getProductCost();
         this.quantity = req.getProductQuantity();
         this.imageUrl = req.getProductLink();
+    }
+
+    public Product(String name, String description, Float cost, Integer quantity, String imageUrl) {
+        this.name = name;
+        this.description = description;
+        this.cost = cost;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
     }
 }

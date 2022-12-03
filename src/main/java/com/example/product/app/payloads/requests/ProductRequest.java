@@ -5,10 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
-@NoArgsConstructor
 @Getter
 @Setter
-public class CreateProductReq {
+@NoArgsConstructor
+public class ProductRequest {
+
+    private Integer productId;
+
     @NonNull
     private String productName;
 
