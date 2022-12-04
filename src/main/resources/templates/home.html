@@ -113,7 +113,7 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-            <h1 class="fw-light text-center">Thêm sản phẩm</h1>
+            <h1 class="fw-light text-center">Danh sách sản phẩm</h1>
             <!--    Phần tìm kiếm sản phẩm -->
             <!--    =======================================================-->
             <div class="col-lg-6 col-md-8 mx-auto mb-5" id="search-product">
@@ -158,12 +158,12 @@
 
 <!--    Footer -->
 <!--    =======================================================-->
-<div aria-hidden="true" class="modal fade" data-backdrop="static" id="modal-edit-product" role="dialog" tabindex="-1">
+<div aria-hidden="true" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-edit-product" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Chỉnh sửa thông tin sản phẩm!</h5>
-                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button" onclick="closeModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -413,6 +413,10 @@
                 loadProductList(true);
             }
         )
+    }
+
+    function closeModal() {
+        dialogEditProduct.modal("hide");
     }
 
     function deleteProduct(productId) {
