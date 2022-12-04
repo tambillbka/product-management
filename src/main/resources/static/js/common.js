@@ -1,4 +1,4 @@
-const MyAjax = function() {
+const MyAjax = function () {
     function doGet(url, doSuccess, doError) {
         $.ajax({
             type: "GET",
@@ -16,7 +16,7 @@ const MyAjax = function() {
         $.ajax({
             type: "POST",
             url: url,
-            datatype : "json",
+            datatype: "json",
             contentType: "application/json; charset=utf-8",
             data: data,
             success: (response) => {
@@ -32,7 +32,7 @@ const MyAjax = function() {
         $.ajax({
             type: "PUT",
             url: url,
-            datatype : "json",
+            datatype: "json",
             contentType: "application/json; charset=utf-8",
             data: data,
             success: (response) => {

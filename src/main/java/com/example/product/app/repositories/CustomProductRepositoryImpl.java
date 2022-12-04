@@ -36,7 +36,7 @@ public class CustomProductRepositoryImpl implements CustomProductRepository {
 
     @Override
     public Integer totalProductBy(String search) {
-        StringBuilder query = new StringBuilder("SELECT p.id FROM products AS p");
+        StringBuilder query = new StringBuilder("SELECT * FROM products AS p");
         if (StringUtils.hasText(search)) {
             query.append(" WHERE p.product_name LIKE '%").append(search).append("%'")
                     .append(" OR p.description LIKE '%").append(search).append("%'");
